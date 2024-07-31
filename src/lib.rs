@@ -17,10 +17,10 @@ use unicode_normalization::UnicodeNormalization;
 ///
 /// ## Examples
 ///
-/// ASCII only deals mainly with capitalization, punctuation, and whitespace:
+/// ASCII-only input deals mainly with capitalization, punctuation, and whitespace:
 /// ```rust
 /// # use slug_intl::slugify;
-/// assert_eq!("hello".to_string(), slugify("Hello"));
+/// assert_eq!("hello", slugify("Hello"));
 /// assert_eq!("hello-world", slugify("Hello World"));
 /// assert_eq!("hello-world", slugify("Hello World!"));
 /// assert_eq!("hello-world", slugify("/?&#Hello\n\r\n\r   --World!!!"));
@@ -37,7 +37,8 @@ use unicode_normalization::UnicodeNormalization;
 /// assert_eq!("am\u{00e9}lie", slugify("ame\u{0301}lie"));
 /// ```
 ///
-/// You may want to percent-escape the output when rendering HTML:
+/// You may want to percent-escape the output when rendering HTML, e.g. with the
+/// [urlencoding](https://crates.io/crates/urlencoding) crate:
 /// ```rust
 /// # use slug_intl::slugify;
 /// assert_eq!("hello-%F0%9F%90%A0", urlencoding::encode(&slugify("Hello 🐠")));
