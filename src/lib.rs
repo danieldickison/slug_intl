@@ -26,7 +26,7 @@ use unicode_normalization::UnicodeNormalization;
 /// assert_eq!("hello-world", slugify("/?&#Hello\n\r\n\r   --World!!!"));
 /// ```
 ///
-/// Unicode characters are normalized but otherwise preserved:
+/// Printable Unicode characters are normalized but otherwise preserved:
 /// ```rust
 /// # use slug_intl::slugify;
 /// assert_eq!("おはよう-世界", slugify("おはよう、世界！！"));
